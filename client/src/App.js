@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import SearchBooks from './pages/SearchBooks';
 import SavedBooks from './pages/SavedBooks';
 import Navbar from './components/Navbar';
-// for apollo client request
+// apollo provider for client request
 import {ApolloClient} from '@apollo/client';
 import {ApolloProvider} from '@apollo/client';
 // memory for server
