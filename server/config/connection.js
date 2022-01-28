@@ -7,18 +7,18 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/googlebooks', {
   useFindAndModify: false,
 });
 
-const mongo = require('mongodb');
-const MongoClient = mongo.MongoClient;
+// const mongo = require('mongodb');
+// const MongoClient = mongo.MongoClient;
 
-const url = 'mongodb://localhost:27017';
+// const url = 'mongodb://localhost:27017';
 
-MongoClient.connect(url, { useNewUrlParser: true }, (err, client) => {
+// MongoClient.connect(url, { useNewUrlParser: true }, (err, client) => {
 
-    if (err) throw err;
+//     if (err) throw err;
 
-    console.log(client.topology.clientInfo);
+//     console.log(client.topology.clientInfo);
 
-    client.close();
-});
+//     client.close();
+// });
 
 module.exports = mongoose.connection;
