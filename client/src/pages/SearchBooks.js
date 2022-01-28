@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
 
-
+import { searchGoogleBooks } from '../utils/API';
 import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
 import { SAVE_BOOK } from '../utils/mutations';
@@ -36,10 +36,6 @@ const SearchBooks = () => {
     try {
       const response = await searchGoogleBooks(searchInput);
 
-      if (!response.ok) {
-        throw new Error('something went wrong!');
-      }
-
       const { items } = await response.json();
 
       const bookData = items.map((book) => ({
@@ -70,13 +66,11 @@ const SearchBooks = () => {
     }
 
     try {
-      const response = await saveBook({
-        variables: { input: bookToSave },
+      const { data } = await saveBook({
+        variables: { bookData: bookToSave },
       });
 
-      if (!response.ok) {
-        throw new Error('something went wrong!');
-      }
+
 
       // if book successfully saves to user's account, save book id to state
       setSavedBookIds([...savedBookIds, bookToSave.bookId]);

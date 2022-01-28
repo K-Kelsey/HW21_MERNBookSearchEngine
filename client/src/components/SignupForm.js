@@ -20,23 +20,9 @@ const SignupForm = () => {
     setUserFormData({ ...userFormData, [name]: value });
   };
 
-
-
   // implement add_user mutation
   const [addUser, { err }] = useMutation(ADD_USER);
-  useEffect(() => {
-    if (!err) {
-      setShowAlert(false);
-    } else {
-      setShowAlert(true);
-    }
-  }, [err]);
 
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setUserFormData({ ...userFormData, [name]: value });
-  };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();

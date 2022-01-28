@@ -11,8 +11,13 @@ const db = require('./config/connection');
 // process apollo server
 const PORT = process.env.PORT || 3001;
 const app = express();
-const server = new ApolloServer({ typeDefs, resolvers, context: authMiddleware });
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  context: authMiddleware
+});
 
+// await server.start();
 server.applyMiddleware({ app });
 
 app.use(express.urlencoded({ extended: false }));

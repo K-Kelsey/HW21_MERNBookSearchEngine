@@ -5,7 +5,7 @@ const resolvers = {
     Query: {
         me: async (parent, args, context) => {
             if (context.user) {
-                const loggedInUser = await User.findOne({ _id: context.user.id})
+                const loggedInUser = await User.findOne({ _id: context.user._id})
                 return loggedInUser;
             }
             
@@ -24,18 +24,19 @@ const resolvers = {
                 return;
             }
             const token = signToken(userLogin)
-            return { token, userLogin }
+            return { token, user: userLogin }
         },
         addUser: async (parent, {username, email, password} , context) => {
             const newUser = await User.create({ username, email, password })
-            return newUser;
+            const token = signToken(newUser)
+            return { token, user: newUser }
         },
         saveBook: async (parent, bookData, context) => {
         if(context.user) {
             const updatedUserBookList = await User.findOneAndUpdate(
-                { bookId: context.user.bookId },
-                { $addToSet: { savedBooks: bookData.input} },
-                { new: true, runValidators: true}
+                { _id: context.user._id },
+                { $addToSet: { savedBooks: bookData.bookData } },
+                { new: true }
             )
             return updatedUserBookList;
         }
