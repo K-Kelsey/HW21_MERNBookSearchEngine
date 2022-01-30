@@ -1,6 +1,6 @@
 # HW21_MERNBookSearchEngine
 ---
-![MIT license](https://img.shields.io/badge/License-MIT-yellow.svg)(https://opensource.org/licenses/MIT)
+![MIT license](https://img.shields.io/badge/License-MIT-yellow.svg)
 ## INSTRUCTIONS
 This project is designed to allow the users to search for any book titles or authors and will be returned with a list of books via the GoogleBooks API.  Users are also allowed to create an account that will allow them the added feature of saving books to their account!
 ## Table of Contents
@@ -26,7 +26,7 @@ Here you can see some examples of the deployed website: (https://hw21booksearche
 ![saved books](images/saved.png)
 
  # License
-            This project is licensed under the MIT license
+            This project is licensed under the MIT license (https://opensource.org/licenses/MIT)
             
 
 ## Contributing
