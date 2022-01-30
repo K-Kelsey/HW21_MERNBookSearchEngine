@@ -26,7 +26,7 @@ Here you can see some examples of the deployed website: (https://hw21booksearche
 ![saved books](images/saved.png)
 
  # License
-            This project is license under the MIT license
+            This project is licensed under the MIT license
             
 
 ## Contributing
